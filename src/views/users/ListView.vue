@@ -39,10 +39,10 @@
                                 </router-link>
                             </li>
                             <li class="linkBtn">
-                                <router-link :to="'/users/' + user.id + '/delete'">
+                                <button @click="deleteUser(user.id)">
                                     <span class="bi bi-trash"></span>
                                     Delete
-                                </router-link>
+                                </button>
                             </li>
                         </ul>
                     </template>
@@ -83,6 +83,9 @@ export default {
             if (this.users.length == this.$store.state.users.length && this.users.length !== 0) {
                 this.loading = false
             }
+        },
+        deleteUser(id) {
+            this.$store.dispatch("deleteUser", id)
         }
     },
     created() {
