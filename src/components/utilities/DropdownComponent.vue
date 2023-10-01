@@ -17,7 +17,7 @@
                 ring-black 
                 ring-opacity-5 
                 focus:outline-none
-                p-2
+                p-4
                 z-10
                 ">
                 <slot name="dropdown-content">

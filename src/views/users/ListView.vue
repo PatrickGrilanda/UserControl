@@ -9,11 +9,14 @@
         <ul v-for="user in users" :key="user.id">
             <li class="flex items-center justify-between p-4 mb-4 bg-white rounded shadow w-full">
                 <div class="flex gap-2">
-                    <div class="flex items-center">
+                    <div class="flex gap-4 items-center">
                         <div class="avatar">
                             <img class="avatar-img" :src="user.image" loading="lazy">
                         </div>
-                        <p class="text-xl font-bold">{{ user.name }}, {{ user.age }}</p>
+                        <ul class="flex flex-col gap-1">
+                            <li class="text-md font-bold">{{ user.name }}</li>
+                            <li class="text-sm text-gray-500">{{ user.age }} years old</li>
+                        </ul>
                     </div>
                 </div>
                 <DropdownComponent>
@@ -48,14 +51,12 @@
     </section>
 </template>
 <script>
-import { api } from "@/services/api.js"
 import LoadingComponent from "@/components/utilities/LoadingComponent.vue"
 import DropdownComponent from "@/components/utilities/DropdownComponent.vue"
 export default {
     name: "ListUsers",
     data() {
         return {
-            users: [],
             loading: true
         }
     },
@@ -63,20 +64,29 @@ export default {
         LoadingComponent,
         DropdownComponent
     },
+    computed: {
+        users() {
+            return this.$store.state.users
+        },
+    },
     methods: {
         getUsers() {
             setTimeout(() => {
-                api.get("http://localhost:3000/users").then((response) => {
-                    this.loading = false
-                    this.users = response.data
-                }).catch((error) => {
-                    console.log(error)
-                })
+                this.$store.dispatch("getUsers", true)
+                    .then(() => {
+                        this.loading = false
+                    })
             }, 2000)
+        },
+        verifyUsers() {
+            if (this.users.length == this.$store.state.users.length && this.users.length !== 0) {
+                this.loading = false
+            }
         }
     },
     created() {
-        this.getUsers()
+        this.getUsers(),
+            this.verifyUsers()
     }
 }
 </script>
