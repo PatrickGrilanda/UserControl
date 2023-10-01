@@ -1,7 +1,7 @@
 <template>
   <HeaderComponent>
   </HeaderComponent>
-  <main class="container p-4">
+  <main class="p-4">
     <router-view />
   </main>
 </template>

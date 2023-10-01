@@ -4,7 +4,7 @@
             <slot name="dropdown-title"></slot>
         </button>
         <Transition name="fade">
-            <div v-if="show" class="
+            <div v-if="show" @mouseleave="show = false" class="
                 origin-top-right 
                 absolute 
                 right-0 
@@ -18,6 +18,7 @@
                 ring-opacity-5 
                 focus:outline-none
                 p-2
+                z-10
                 ">
                 <slot name="dropdown-content">
                 </slot>

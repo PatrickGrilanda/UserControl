@@ -4,14 +4,15 @@
         <NavbarComponent class="hidden md:block" />
         <DropdownComponent>
             <template v-slot:dropdown-title>
-                <span class="bi bi-three-dots"></span>
+                <span class="bi bi-list"></span>
+                Menu
             </template>
             <template v-slot:dropdown-content>
                 <NavbarComponent class="block md:hidden" />
                 <hr class="block md:hidden my-2">
                 <ul>
                     <li>
-                        <router-link to="/about">About</router-link>
+                        <router-link class="linkBtn" to="/about">About</router-link>
                     </li>
                 </ul>
             </template>
