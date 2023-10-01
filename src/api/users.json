@@ -1,0 +1,26 @@
+{
+    "users": {
+        "1" : {
+            "name": "John",
+            "age": 30,
+            "friends": {
+                "2": true,
+                "3": true
+            }
+        },
+        "2" : {
+            "name": "Jane",
+            "age": 25,
+            "friends": {
+                "1": true
+            }
+        },
+        "3" : {
+            "name": "Bob",
+            "age": 35,
+            "friends": {
+                "1": true
+            }
+        }
+    }
+}
