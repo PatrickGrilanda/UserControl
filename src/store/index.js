@@ -5,8 +5,7 @@ export default createStore({
   state: {
     user: {
       name: 'John Doe',
-      email: '',
-      phone: '',
+      age: 26
     },
     users: []
   },
@@ -26,6 +25,9 @@ export default createStore({
         .then((response) => {
           context.commit('setUsers', response.data)
         })
+    },
+    getUser(context, payload) {
+      return api.get(`/users/${payload}`);
     }
   },
   modules: {

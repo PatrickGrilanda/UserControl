@@ -16,6 +16,7 @@
                         <ul class="flex flex-col gap-1">
                             <li class="text-md font-bold">{{ user.name }}</li>
                             <li class="text-sm text-gray-500">{{ user.age }} years old</li>
+                            <li class="text-sm text-gray-500">{{ user.city }}</li>
                         </ul>
                     </div>
                 </div>

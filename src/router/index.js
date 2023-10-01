@@ -33,7 +33,14 @@ const routes = [
   {
     path: '/users/',
     name: 'list',
-    component: () => import(/* webpackChunkName: "list" */ '../views/users/ListView.vue')
+    component: () => import(/* webpackChunkName: "list" */ '../views/users/ListView.vue'),
+    children: [
+      {
+        path: ':id/view',
+        name: 'view',
+        component: () => import(/* webpackChunkName: "view" */ '../views/users/DetailView.vue')
+      }
+    ]
   }
 ]
 
