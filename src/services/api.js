@@ -11,5 +11,8 @@ const axiosInstance = axios.create({
 export const api = {
     get(endpoint) {
         return axiosInstance.get(endpoint);
-    }
+    },
+    post(endpoint, data) {
+        return axiosInstance.post(endpoint, data);
+    },
 }

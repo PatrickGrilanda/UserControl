@@ -1,35 +1,51 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "John",
-            "age": 30,
-            "city": "New York",
-            "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-            "friends": {
-                "2": true,
-                "3": true
-            }
-        },
-        {
-            "id": 2,
-            "name": "Jane",
-            "age": 25,
-            "city": "London",
-            "image": "https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-            "friends": {
-                "1": true
-            }
-        },
-        {
-            "id": 3,
-            "name": "Bob",
-            "age": 35,
-            "city": "Paris",
-            "image": "https://plus.unsplash.com/premium_photo-1666265087928-fe19db9887ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-            "friends": {
-                "1": true
-            }
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "John",
+      "age": 30,
+      "city": "New York",
+      "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "friends": {
+        "2": true,
+        "3": true
+      }
+    },
+    {
+      "id": 2,
+      "name": "Jane",
+      "age": 25,
+      "city": "London",
+      "image": "https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+      "friends": {
+        "1": true
+      }
+    },
+    {
+      "id": 3,
+      "name": "Bob",
+      "age": 35,
+      "city": "Paris",
+      "image": "https://plus.unsplash.com/premium_photo-1666265087928-fe19db9887ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "friends": {
+        "1": true
+      }
+    },
+    {
+      "name": "Jonathan",
+      "age": "45",
+      "city": "Las Vegas",
+      "image": "-",
+      "friends": [],
+      "id": 4
+    },
+    {
+      "name": "Nathália",
+      "age": "32",
+      "city": "London",
+      "image": "-",
+      "friends": [],
+      "id": 5
+    }
+  ]
 }

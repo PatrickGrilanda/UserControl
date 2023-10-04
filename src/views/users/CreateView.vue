@@ -1,6 +1,6 @@
 <template>
     <section class="container flex justify-center">
-        <CardComponent class="w-1/2" title="Create User">
+        <CardComponent class="md:w-1/2 w-full" title="Create User">
             <template v-slot:card-content>
                 <div class="flex flex-col gap-2">
                     <div class="p-4 border rounded-lg">
@@ -29,6 +29,7 @@
 </template>
 <script>
 import CardComponent from '@/components/utilities/CardComponent.vue'
+import { api } from '@/services/api'
 export default {
     name: "CreateUser",
     data() {
@@ -47,8 +48,13 @@ export default {
     },
     methods: {
         createUser() {
-            this.$store.dispatch('createUser', this.user)
-            this.$router.push({ name: 'Users' })
+            api.post('/users', this.user)
+                .then(() => {
+                    console.log('User created')
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         }
     }
 }

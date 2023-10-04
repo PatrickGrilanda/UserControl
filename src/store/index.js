@@ -12,9 +12,6 @@ export default createStore({
   getters: {
   },
   mutations: {
-    createUser(state, payload) {
-      state.users.push(payload)
-    },
     setUser(state, payload) {
       state.user = payload
     },
@@ -26,9 +23,6 @@ export default createStore({
     }
   },
   actions: {
-    createUser(context, payload) {
-      context.commit('createUser', payload)
-    },
     getUsers(context) {
       api.get('/users')
         .then((response) => {

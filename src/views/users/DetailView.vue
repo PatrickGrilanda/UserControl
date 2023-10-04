@@ -1,7 +1,7 @@
 <template>
     <section>
         <h1>Detail - {{ id }}</h1>
-        {{user}}
+        {{ user }}
     </section>
 </template>
 <script>
@@ -15,13 +15,11 @@ export default {
     },
     methods: {
         getUser() {
-            setTimeout(() => {
-                this.$store.dispatch("getUser", this.$route.params.id)
-                    .then((response) => {
-                        this.loading = false;
-                        this.user = response.data;
-                    })
-            }, 1500)
+            this.$store.dispatch("getUser", this.$route.params.id)
+                .then((response) => {
+                    this.loading = false;
+                    this.user = response.data;
+                })
         },
     },
     computed: {
