@@ -1,27 +1,43 @@
 <template>
     <section class="container flex justify-center">
-        <CardComponent class="md:w-1/2 w-full" title="Create User">
+        <CardComponent class="lg:w-1/2 w-full" title="Create User">
             <template v-slot:card-content>
-                <div class="flex flex-col gap-2">
+                <div class="grid md:grid-cols-2 gap-2">
                     <div class="p-4 border rounded-lg">
                         <label for="name">Name</label>
-                        <input class="form-input" type="text" name="name" id="name" v-model="user.name">
+                        <input class="form-input" type="text" name="name" id="name" v-model="user.name"
+                            placeholder="Insert the name here">
                     </div>
                     <div class="p-4 border rounded-lg">
                         <label for="age">Age</label>
-                        <input class="form-input" type="text" name="age" id="age" v-model="user.age">
+                        <input class="form-input" type="number" name="age" id="age" v-model="user.age"
+                            placeholder="Insert age">
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <label for="role">Role</label>
+                        <input class="form-input" type="text" name="role" id="role" v-model="user.role"
+                            placeholder="Insert role">
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <label for="email">Email</label>
+                        <input class="form-input" type="text" name="email" id="email" v-model="user.email"
+                            placeholder="Insert email">
                     </div>
                     <div class="p-4 border rounded-lg">
                         <label for="city">City</label>
-                        <input class="form-input" type="text" name="city" id="city" v-model="user.city">
+                        <input class="form-input" type="text" name="city" id="city" v-model="user.city"
+                            placeholder="Insert city">
                     </div>
                     <div class="p-4 border rounded-lg">
                         <label for="image">Image</label>
-                        <input class="form-input" type="text" name="image" id="image" v-model="user.image">
+                        <input class="form-input" type="text" name="image" id="image" v-model="user.image"
+                            placeholder="Insert the image link here">
                     </div>
                 </div>
                 <div class="flex justify-end my-4">
-                    <button class="btn btn-primary" @click="createUser">Create</button>
+                    <div class="">
+                        <button class="btn btn-primary" @click="createUser">Create</button>
+                    </div>
                 </div>
             </template>
         </CardComponent>
@@ -38,6 +54,8 @@ export default {
                 name: '',
                 age: 0,
                 city: '',
+                role: '',
+                email: '',
                 image: '',
                 friends: []
             }
@@ -47,6 +65,9 @@ export default {
         CardComponent
     },
     methods: {
+        newFile(event) {
+            this.user.image = event.target.files[0];
+        },
         createUser() {
             api.post('/users', this.user)
                 .then(() => {

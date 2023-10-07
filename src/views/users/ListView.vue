@@ -4,10 +4,20 @@
             Users
         </h1>
         <hr class="my-4">
+        <div class="flex justify-end">
+            <div class="">
+                <router-link class="btn btn-primary" to="/users/create">
+                    <span class="bi bi-plus"></span>
+                    Add user
+                </router-link>
+            </div>
+        </div>
+        <hr class="my-4">
         <input type="text" placeholder="Search user" class="w-full p-2 mb-4 border border-gray-300 rounded shadow">
         <LoadingComponent v-if="loading"></LoadingComponent>
-        <ul v-for="user in users" :key="user.id">
-            <li class="flex items-center justify-between p-4 mb-4 bg-white rounded shadow w-full">
+        <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 w-100">
+            <div v-for="user in users" :key="user.id"
+                class="flex items-center justify-between p-4 mb-4 bg-white rounded shadow">
                 <div class="flex gap-2">
                     <div class="flex gap-4 items-center">
                         <div class="avatar">
@@ -47,13 +57,14 @@
                         </ul>
                     </template>
                 </DropdownComponent>
-            </li>
-        </ul>
+            </div>
+        </div>
     </section>
 </template>
 <script>
 import LoadingComponent from "@/components/utilities/LoadingComponent.vue"
 import DropdownComponent from "@/components/utilities/DropdownComponent.vue"
+import { api } from '@/services/api'
 export default {
     name: "ListUsers",
     data() {
@@ -85,7 +96,10 @@ export default {
             }
         },
         deleteUser(id) {
-            this.$store.dispatch("deleteUser", id)
+            api.delete(`/users/${id}`)
+                .then(() => {
+                    this.$store.dispatch("getUsers", true)
+                })
         }
     },
     created() {

@@ -1,6 +1,6 @@
 <template>
     <div class="relative inline-block text-left">
-        <button @click="toggle">
+        <button class="linkBtn" @click="toggle">
             <slot name="dropdown-title"></slot>
         </button>
         <Transition name="fade">

@@ -5,6 +5,8 @@ export default createStore({
   state: {
     user: {
       name: 'John Doe',
+      image: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+      role: 'Admin',
       age: 26
     },
     users: []
@@ -17,9 +19,6 @@ export default createStore({
     },
     setUsers(state, payload) {
       state.users = payload
-    },
-    deleteUser(state, payload) {
-      state.users = state.users.filter(user => user.id !== payload)
     }
   },
   actions: {
@@ -32,10 +31,6 @@ export default createStore({
     getUser(context, payload) {
       return api.get(`/users/${payload}`);
     },
-    deleteUser(context, payload) {
-      context.commit('deleteUser', payload)
-      return true;
-    }
   },
   modules: {
   }

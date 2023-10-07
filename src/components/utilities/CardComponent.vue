@@ -7,6 +7,7 @@
             <div class="p-4">
                 <slot name="card-content"></slot>
             </div>
+
         </div>
     </section>
 </template>

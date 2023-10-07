@@ -15,4 +15,10 @@ export const api = {
     post(endpoint, data) {
         return axiosInstance.post(endpoint, data);
     },
+    put(endpoint, data) {
+        return axiosInstance.put(endpoint, data);
+    },
+    delete(endpoint) {
+        return axiosInstance.delete(endpoint);
+    }
 }

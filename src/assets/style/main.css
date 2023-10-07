@@ -4,7 +4,11 @@
 
 @layer components {
     .linkBtn {
-        @apply w-full inline-block px-4 py-2 text-sm font-medium leading-5 text-center transition duration-150 ease-in-out border border-transparent rounded-md;
+        @apply w-full inline-block px-4 py-2 text-sm font-medium leading-5 text-center transition duration-300 ease-in-out border border-transparent rounded-md;
+    }
+
+    .linkBtn:hover {
+        @apply bg-black text-white;
     }
 
     .btn {
