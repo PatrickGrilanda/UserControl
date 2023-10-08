@@ -47,14 +47,25 @@
       "updated_at": "2021-03-02T14:00:00.000Z"
     },
     {
-      "name": "Patrick Bonaretti Grilanda",
-      "age": 26,
-      "city": "Jundiaí",
-      "role": "Developer",
-      "email": "patrick.grilanda@example.com",
-      "image": "-",
+      "name": "Rick",
+      "age": 30,
+      "city": "Washington",
+      "role": "Junior Analyst",
+      "email": "rick.astley@example.com",
+      "password": "password",
+      "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80",
       "friends": [],
       "id": 4
+    },
+    {
+      "name": "Jonathan",
+      "age": 43,
+      "city": "Vancouver",
+      "role": "I.T Analyst",
+      "email": "Jonathan.wiggle@example.com",
+      "image": "https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      "friends": [],
+      "id": 5
     }
   ]
 }

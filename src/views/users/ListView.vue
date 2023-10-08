@@ -15,22 +15,27 @@
         <hr class="my-4">
         <input type="text" placeholder="Search user" class="w-full p-2 mb-4 border border-gray-300 rounded shadow">
         <LoadingComponent v-if="loading"></LoadingComponent>
-        <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 w-100">
+        <div class="grid gap-2 grid-cols-1 md:grid-cols-3 xl:grid-cols-4 w-100">
             <div v-for="user in users" :key="user.id"
-                class="flex items-center justify-between p-4 mb-4 bg-white rounded shadow">
+                class="flex items-center justify-between p-4 mb-4 bg-white rounded shadow border">
                 <div class="flex gap-2">
                     <div class="flex gap-4 items-center">
                         <div class="avatar">
                             <img class="avatar-img" :src="user.image" loading="lazy">
                         </div>
                         <ul class="flex flex-col gap-1">
-                            <li class="text-md font-bold">{{ user.name }}</li>
+                            <li class="text-md font-bold">
+                                {{ user.name }}
+                                <span v-if="user.id == this.$store.state.user.id"
+                                    class="bi bi-check-circle-fill text-success">
+                                </span>
+                            </li>
                             <li class="text-sm text-gray-500">{{ user.age }} years old</li>
                             <li class="text-sm text-gray-500">{{ user.city }}</li>
                         </ul>
                     </div>
                 </div>
-                <DropdownComponent>
+                <DropdownComponent v-if="user.id != this.$store.state.user.id">
                     <template v-slot:dropdown-title>
                         <span class="bi bi-three-dots"></span>
                     </template>

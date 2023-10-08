@@ -19,7 +19,7 @@
                 <hr class="block my-2">
                 <NavbarComponent class="block md:hidden" />
                 <hr class="block md:hidden my-2">
-                <ul class="grid gap-4">
+                <ul class="grid gap-2">
                     <li>
                         <router-link class="linkBtn" to="/about">About</router-link>
                     </li>
