@@ -1,5 +1,5 @@
 <template>
-    <section class="container flex justify-center">
+    <section class="flex justify-center">
         <CardComponent class="md:w-1/2 w-full" :title="'Details - ' + user.name">
             <template v-slot:card-content>
                 <ul class="flex flex-col gap-2">
@@ -25,7 +25,9 @@
                     </li>
                 </ul>
                 <div class="flex justify-end my-4">
-                    <router-link class="btn btn-primary" :to="'/users/edit/' + user.id">Edit</router-link>
+                    <div class="">
+                        <router-link class="btn btn-primary" :to="'/users/edit/' + user.id">Edit</router-link>
+                    </div>
                 </div>
             </template>
         </CardComponent>

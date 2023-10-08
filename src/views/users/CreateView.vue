@@ -1,5 +1,5 @@
 <template>
-    <section class="container flex justify-center">
+    <section class="flex justify-center">
         <CardComponent class="lg:w-1/2 w-full" title="Create User">
             <template v-slot:card-content>
                 <div class="grid md:grid-cols-2 gap-2">

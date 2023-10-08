@@ -3,15 +3,17 @@ import { api } from '@/services/api.js';
 
 export default createStore({
   state: {
-    user: {
-      name: 'John Doe',
-      image: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-      role: 'Admin',
-      age: 26
-    },
+    user: {},
+    isAuthenticated: false,
     users: []
   },
   getters: {
+    getUser(state) {
+      return state.user
+    },
+    getUsers(state) {
+      return state.users
+    },
   },
   mutations: {
     setUser(state, payload) {
@@ -19,6 +21,9 @@ export default createStore({
     },
     setUsers(state, payload) {
       state.users = payload
+    },
+    setIsAuthenticated(state, payload) {
+      state.isAuthenticated = payload
     }
   },
   actions: {
@@ -31,6 +36,19 @@ export default createStore({
     getUser(context, payload) {
       return api.get(`/users/${payload}`);
     },
+    login(context, payload) {
+      api.get(`/users?email=${payload.email}&password=${payload.password}`)
+        .then((response) => {
+          if (response.data.length > 0) {
+            context.commit('setUser', response.data[0])
+            context.commit('setIsAuthenticated', true)
+          }
+        })
+    },
+    logout(context) {
+      context.commit('setUser', {}),
+        context.commit('setIsAuthenticated', false)
+    }
   },
   modules: {
   }

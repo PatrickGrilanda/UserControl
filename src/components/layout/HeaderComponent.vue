@@ -19,9 +19,15 @@
                 <hr class="block my-2">
                 <NavbarComponent class="block md:hidden" />
                 <hr class="block md:hidden my-2">
-                <ul>
+                <ul class="grid gap-4">
                     <li>
                         <router-link class="linkBtn" to="/about">About</router-link>
+                    </li>
+                    <li>
+                        <router-link class="linkBtn" to="/contact">Contact</router-link>
+                    </li>
+                    <li>
+                        <button class="linkBtn bg-red-600 text-white" @click="logout">Logout</button>
                     </li>
                 </ul>
             </template>
@@ -36,6 +42,13 @@ export default {
     components: {
         NavbarComponent,
         DropdownComponent
+    },
+    methods: {
+        logout() {
+            this.$store.dispatch('logout').then(() => {
+                this.$router.push({ name: 'login' })
+            })
+        }
     },
     computed: {
         user() {
