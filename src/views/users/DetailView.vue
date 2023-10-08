@@ -62,17 +62,30 @@
                 <h1 class="text-lg font-bold">{{ user.name }}'s' Publications</h1>
             </div>
             <hr class="my-4">
+            <ul class="flex flex-col gap-2">
+                <li v-for="publication in user.publications" :key="publication.id">
+                    <CardComponent :title="publication.title">
+                        <template v-slot:card-content>
+                            <div class="flex justify-end mb-4">
+                                <p class="text-sm text-gray-500">{{ publication.created_at }}</p>
+                            </div>
+                            <p class="text-sm text-gray-700">{{ publication.description }}</p>
+                            <img v-if="publication.image" :src="publication.image">
+                        </template>
+                    </CardComponent>
+                </li>
+            </ul>
         </div>
     </section>
 </template>
 <script>
-
+import CardComponent from "@/components/utilities/CardComponent.vue"
 export default {
     name: "DetailUser",
     data() {
         return {
             id: this.$route.params.id,
-            user: []
+            user: [],
         }
     },
     methods: {
@@ -85,11 +98,12 @@ export default {
         },
     },
     components: {
+        CardComponent
     },
     computed: {
     },
     created() {
-        this.getUser();
+        this.getUser()
     }
 }
 </script>
