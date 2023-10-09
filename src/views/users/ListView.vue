@@ -4,15 +4,6 @@
             Users
         </h1>
         <hr class="my-4">
-        <div class="flex justify-end">
-            <div class="">
-                <router-link class="btn btn-primary" to="/users/create">
-                    <span class="bi bi-plus"></span>
-                    Add user
-                </router-link>
-            </div>
-        </div>
-        <hr class="my-4">
         <input type="text" placeholder="Search user" class="w-full p-2 mb-4 border border-gray-300 rounded shadow">
         <LoadingComponent v-if="loading"></LoadingComponent>
         <div class="grid gap-2 grid-cols-1 md:grid-cols-3 xl:grid-cols-4 w-100">

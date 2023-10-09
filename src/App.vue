@@ -1,33 +1,44 @@
 <template>
-  <HeaderComponent v-if="isAuthenticated">
-  </HeaderComponent>
+  <section class="h-full bg-slate-100">
+    <HeaderComponent class="sticky top-0 z-50">
+    </HeaderComponent>
 
-  <main class="p-4" :class="{ 'h-screen': isAuthenticated == false }">
-    <router-view class="h-full" />
-  </main>
+    <main class="h-full">
+      <router-view class="h-full p-4" />
+    </main>
+  </section>
 </template>
 <script>
 import HeaderComponent from './components/layout/HeaderComponent.vue'
+import Cookies from 'js-cookie'
+import { api } from '@/services/api'
 export default {
   name: 'App',
   data() {
     return {
-      user: null,
     }
   },
   components: {
     HeaderComponent
   },
   methods: {
-    getUser() {
-      this.user = this.$store.state.user
-    },
     verifyAuthentication() {
-      if (this.user.id != null) {
-        this.isAuthenticated = true;
+      const user_id = Cookies.get('user_id');
+      if (user_id) {
+        api.get('/users/' + user_id).then((response) => {
+          this.$store.commit('setUser', response.data)
+          this.isAuthenticated = true;
+        }).catch(() => {
+          this.isAuthenticated = false;
+          this.redirectToLogin();
+        })
       } else {
-        this.isAuthenticated = false;
-        this.redirectToLogin();
+        if (this.user.id != null) {
+          this.isAuthenticated = true;
+        } else {
+          this.isAuthenticated = false;
+          this.redirectToLogin();
+        }
       }
     },
     redirectToLogin() {
@@ -35,12 +46,11 @@ export default {
     }
   },
   created() {
-    this.getUser(),
-      this.verifyAuthentication()
+    this.verifyAuthentication()
   },
   watch: {
     user() {
-      if (this.getUser().id != null) {
+      if (this.user.id != null) {
         this.isAuthenticated = true;
       } else {
         this.redirectToLogin();
@@ -50,6 +60,9 @@ export default {
   computed: {
     isAuthenticated() {
       return this.$store.state.isAuthenticated
+    },
+    user() {
+      return this.$store.state.user
     }
   }
 }

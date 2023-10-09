@@ -1,19 +1,22 @@
 <template>
-    <section class="flex flex-row items-center justify-between p-4 border shadow-sm">
-        <router-link to="/">
+    <section class="flex flex-row items-center p-4 border shadow-sm bg-white h-16"
+        :class="{ 'justify-between': user.id != undefined, 'justify-end': user.id == undefined }">
+        <router-link to="/" v-if="this.$store.state.user.id">
             <img class="w-10 h-10 rounded-full" :src="user.image" alt="user image">
         </router-link>
         <NavbarComponent class="hidden md:block" />
-        <DropdownComponent>
+        <DropdownComponent v-if="user.id">
             <template v-slot:dropdown-title>
                 <span class="bi bi-list "></span>
                 Menu
             </template>
             <template v-slot:dropdown-content>
                 <ul>
-                    <li class="flex items-center">
-                        <img class="w-10 h-10 rounded-full" :src="user.image" alt="user image">
-                        <span class="ml-2">{{ user.name }}</span>
+                    <li>
+                        <router-link class="flex items-center linkBtn" :to="'/users/' + user.id">
+                            <img class="w-10 h-10 rounded-full" :src="user.image" alt="user image">
+                            <span class="ml-2">{{ user.name }}</span>
+                        </router-link>
                     </li>
                 </ul>
                 <hr class="block my-2">

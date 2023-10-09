@@ -1,18 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 @layer components {
     .linkBtn {
-        @apply w-full inline-block px-4 py-2 text-sm font-medium leading-5 text-center transition duration-300 ease-in-out border border-transparent rounded-md;
+        @apply w-full inline-block px-4 py-2 text-sm font-medium leading-5 text-center transition duration-300 ease-in-out border border-transparent rounded-md cursor-pointer;
     }
 
     .linkBtn:hover {
-        @apply bg-black text-white;
+        @apply bg-purple-600 text-white;
     }
 
     .btn {
-        @apply inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out border border-transparent rounded-md shadow-sm;
+        @apply inline-flex w-full px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md shadow-sm;
     }
 
     .btn-primary {

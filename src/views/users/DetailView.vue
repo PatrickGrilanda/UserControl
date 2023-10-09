@@ -1,6 +1,6 @@
 <template>
     <section class="w-full md:justify-center md:flex">
-        <div class="w-full lg:w-4/5 md:border md:shadow md:p-4   md:rounded-lg">
+        <div class="w-full lg:w-4/5 md:border md:shadow md:p-4 md:rounded-lg bg-white">
             <div class="flex justify-center flex-col md:flex-row items-center md:justify-between ">
                 <div class="avatar">
                     <img class="avatar-img" :src="user.image" alt="avatar">
@@ -14,9 +14,13 @@
             <hr class="my-4">
             <div class="flex justify-end gap-2">
                 <div>
-                    <button class="btn btn-primary gap-2">
+                    <button v-if="this.$store.state.user.friends.includes(id)" class="btn btn-primary gap-2">
                         <span class="bi bi-person-plus  "></span>
                         Add Friend
+                    </button>
+                    <button v-else class="btn bg-red-600 gap-2">
+                        <span class="bi bi-person-dash"></span>
+                        Remove Friend
                     </button>
                 </div>
                 <div>
@@ -59,11 +63,11 @@
             </div>
             <hr class="my-4">
             <div>
-                <h1 class="text-lg font-bold">{{ user.name }}'s' Publications</h1>
+                <h1 class="text-lg font-bold">{{ user.name }}'s Publications</h1>
             </div>
             <hr class="my-4">
             <ul class="flex flex-col gap-2">
-                <li v-for="publication in user.publications" :key="publication.id">
+                <li v-for="publication in publications" :key="publication.id">
                     <CardComponent :title="publication.title">
                         <template v-slot:card-content>
                             <div class="flex justify-end mb-4">
@@ -79,13 +83,15 @@
     </section>
 </template>
 <script>
-import CardComponent from "@/components/utilities/CardComponent.vue"
+import CardComponent from "@/components/utilities/CardComponent.vue";
+import { api } from "@/services/api.js";
 export default {
     name: "DetailUser",
     data() {
         return {
             id: this.$route.params.id,
             user: [],
+            publications: []
         }
     },
     methods: {
@@ -96,6 +102,12 @@ export default {
                     this.user = response.data;
                 })
         },
+        getPublications() {
+            api.get(`/user_publications?user_id=${this.id}`)
+                .then((response) => {
+                    this.publications = response.data;
+                })
+        }
     },
     components: {
         CardComponent
@@ -103,7 +115,8 @@ export default {
     computed: {
     },
     created() {
-        this.getUser()
+        this.getUser(),
+            this.getPublications()
     }
 }
 </script>

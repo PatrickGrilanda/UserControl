@@ -5,14 +5,16 @@
       "name": "John",
       "email": "john.wick@example.com",
       "password": "password",
+      "password_confirmation": "password",
       "role": "buyer",
       "age": 30,
       "city": "New York",
       "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      "friends": {
-        "2": true,
-        "3": true
-      },
+      "friends": [
+        2,
+        3
+      ],
+      "status": "online",
       "created_at": "2021-03-02T14:00:00.000Z",
       "updated_at": "2021-03-02T14:00:00.000Z"
     },
@@ -21,13 +23,15 @@
       "name": "Jane",
       "email": "Jane.foster@example.com",
       "password": "password",
+      "password_confirmation": "password",
       "role": "seller",
       "age": 25,
       "city": "London",
       "image": "https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-      "friends": {
-        "1": true
-      },
+      "friends": [
+        1
+      ],
+      "status": "online",
       "created_at": "2021-03-02T14:00:00.000Z",
       "updated_at": "2021-03-02T14:00:00.000Z"
     },
@@ -36,48 +40,33 @@
       "name": "Bob",
       "email": "Bob.dylan@example.com",
       "password": "password",
+      "password_confirmation": "password",
       "role": "business manager",
       "age": 35,
       "city": "Paris",
       "image": "https://plus.unsplash.com/premium_photo-1666265087928-fe19db9887ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      "friends": {
-        "1": true
-      },
+      "friends": [
+        1
+      ],
+      "status": "offline",
       "created_at": "2021-03-02T14:00:00.000Z",
       "updated_at": "2021-03-02T14:00:00.000Z"
     },
     {
+      "id": 4,
       "name": "Rick",
       "age": 30,
       "city": "Washington",
       "role": "Junior Analyst",
       "email": "rick.astley@example.com",
       "password": "password",
+      "password_confirmation": "password",
       "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80",
       "friends": [],
-      "id": 4,
-      "publications": [
-        {
-          "id": 1,
-          "title": "My first publication",
-          "description": "This is my first publication",
-          "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80",
-          "user_id": 4,
-          "created_at": "2021-03-02T14:00:00.000Z",
-          "updated_at": "2021-03-02T14:00:00.000Z"
-        },
-        {
-          "id": 3,
-          "title": "My third publication",
-          "description": "This is my third publication",
-          "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80",
-          "user_id": 4,
-          "created_at": "2021-03-02T14:00:00.000Z",
-          "updated_at": "2021-03-02T14:00:00.000Z"
-        }
-      ]
+      "status": "online"
     },
     {
+      "id": 5,
       "name": "Jonathan",
       "age": 43,
       "city": "Vancouver",
@@ -85,7 +74,130 @@
       "email": "Jonathan.wiggle@example.com",
       "image": "https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
       "friends": [],
-      "id": 5
+      "status": "online"
+    }
+  ],
+  "friendship_requests": [
+    {
+      "id": 1,
+      "from": {
+        "user_id": 1,
+        "name": "John",
+        "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+      },
+      "to": {
+        "user_id": 2,
+        "name": "Jane",
+        "image": "https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+      },
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "from": {
+        "user_id": 5,
+        "name": "Jonathan",
+        "image": "https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+      },
+      "to": {
+        "user_id": 1,
+        "name": "John",
+        "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+      },
+      "status": "pending"
+    }
+  ],
+  "user_publications": [
+    {
+      "id": 1,
+      "user_id": 6,
+      "type": "publication",
+      "title": "My first publication",
+      "description": "This is my first publication",
+      "image": "",
+      "video": "",
+      "likes": [
+        1,
+        2,
+        3
+      ],
+      "created_at": "2021-03-03T14:00:00.000Z",
+      "updated_at": "2021-03-03T14:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "user_id": 6,
+      "type": "publication",
+      "title": "My second publication",
+      "description": "This is my second publication",
+      "image": "",
+      "video": "",
+      "likes": [
+        1,
+        2,
+        3
+      ],
+      "created_at": "2021-03-08T14:00:00.000Z",
+      "updated_at": "2021-03-08T14:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "user_id": 6,
+      "type": "publication",
+      "title": "My third publication",
+      "description": "This is my third publication",
+      "image": "",
+      "video": "",
+      "likes": [
+        1
+      ],
+      "created_at": "2021-03-04T14:00:00.000Z",
+      "updated_at": "2021-03-04T14:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "user_id": 3,
+      "type": "publication",
+      "title": "My third publication",
+      "description": "This is my third publication",
+      "image": "",
+      "video": "",
+      "likes": [
+        2,
+        3
+      ],
+      "created_at": "2021-03-01T14:00:00.000Z",
+      "updated_at": "2021-03-01T14:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "user_id": 2,
+      "type": "publication",
+      "title": "My third publication",
+      "description": "This is my third publication",
+      "image": "",
+      "video": "",
+      "likes": [
+        3
+      ],
+      "created_at": "2021-03-02T14:00:00.000Z",
+      "updated_at": "2021-03-02T14:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "user_id": 2,
+      "type": "opportunity",
+      "title": "I'm Hiring Laravel Developer",
+      "description": "I'm looking for a Laravel Developer to join my team, this guy will be working on a big project for a big company",
+      "image": "",
+      "video": "",
+      "likes": [
+        1,
+        2,
+        3
+      ],
+      "created_at": "2021-03-03T14:00:00.000Z",
+      "updated_at": "2021-03-03T14:00:00.000Z"
     }
   ]
 }

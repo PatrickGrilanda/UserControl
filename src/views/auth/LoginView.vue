@@ -38,6 +38,8 @@
 <script>
 import CardComponent from '@/components/utilities/CardComponent.vue'
 import ModalComponent from '@/components/utilities/ModalComponent.vue'
+import Cookies from 'js-cookie'
+
 export default {
     name: 'LoginView',
     data() {
@@ -55,17 +57,18 @@ export default {
     methods: {
         login() {
             this.loading = true;
-            setTimeout(() => {
-                this.$store.dispatch('login', {
-                    email: this.email,
-                    password: this.password
-                }).then(() => {
+            this.$store.dispatch('login', {
+                email: this.email,
+                password: this.password
+            }).then(() => {
+                setTimeout(() => {
                     this.loading = false;
+                    Cookies.set('user_id', this.$store.state.user.id)
                     this.$router.push({ name: 'home' })
-                }).catch((error) => {
-                    this.error = error.response.data.message
-                })
-            }, 2000);
+                }, 1000);
+            }).catch((error) => {
+                this.error = error
+            })
         }
     }
 }
