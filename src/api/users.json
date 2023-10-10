@@ -121,6 +121,34 @@
         2,
         3
       ],
+      "comments": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "user_id": 3,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        }
+      ],
+      "shares": [
+        1,
+        2,
+        3
+      ],
       "created_at": "2021-03-03T14:00:00.000Z",
       "updated_at": "2021-03-03T14:00:00.000Z"
     },
@@ -133,6 +161,34 @@
       "image": "",
       "video": "",
       "likes": [
+        1,
+        2,
+        3
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "user_id": 3,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        }
+      ],
+      "shares": [
         1,
         2,
         3
@@ -151,6 +207,34 @@
       "likes": [
         1
       ],
+      "comments": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "user_id": 3,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        }
+      ],
+      "shares": [
+        1,
+        2,
+        3
+      ],
       "created_at": "2021-03-04T14:00:00.000Z",
       "updated_at": "2021-03-04T14:00:00.000Z"
     },
@@ -163,6 +247,34 @@
       "image": "",
       "video": "",
       "likes": [
+        2,
+        3
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "user_id": 3,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        }
+      ],
+      "shares": [
+        1,
         2,
         3
       ],
@@ -180,6 +292,34 @@
       "likes": [
         3
       ],
+      "comments": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "user_id": 3,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        }
+      ],
+      "shares": [
+        1,
+        2,
+        3
+      ],
       "created_at": "2021-03-02T14:00:00.000Z",
       "updated_at": "2021-03-02T14:00:00.000Z"
     },
@@ -192,6 +332,34 @@
       "image": "",
       "video": "",
       "likes": [
+        1,
+        2,
+        3
+      ],
+      "comments": [
+        {
+          "id": 1,
+          "user_id": 1,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "user_id": 2,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "user_id": 3,
+          "comment": "This is a comment",
+          "created_at": "2021-03-01T14:00:00.000Z",
+          "updated_at": "2021-03-01T14:00:00.000Z"
+        }
+      ],
+      "shares": [
         1,
         2,
         3

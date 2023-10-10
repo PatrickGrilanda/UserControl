@@ -76,18 +76,36 @@
       <ul class="flex flex-col gap-2 my-4">
         <li v-for="publication in friendsPublications" :key="publication.id">
           <CardComponent :title="publication.title">
-            <template v-slot:card-content>
-              <div class="flex">
+            <template v-slot:card-header>
+              <div class="flex justify-between">
+                <div class="flex items-center gap-2">
+                  <img :src="filterFriend(publication.user_id).image" class="w-10 h-10 rounded-full">
+                  <span class="text-md font-bold">{{ filterFriend(publication.user_id).name }}
+                  </span>
+                </div>
+                <span class="text-gray-600 text-sm">{{ publication.created_at }}</span>
               </div>
+              <hr class="my-2">
+            </template>
+            <template v-slot:card-content>
               <p class="text-gray-600">{{ publication.description }}</p>
               <img v-if="publication.image" :src="publication.image" class="w-full h-48 object-cover rounded-lg">
-              <div v-if="publication.type == 'opportunity'" class="flex justify-between my-3">
-                <div class="flex justify-end">
-                  <button class="btn btn-primary flex gap-2">
-                    <span class="bi bi-check-circle-fill"></span>
-                    Apply
-                  </button>
+              <div v-if="publication.type == 'opportunity'"
+                class="flex flex-col gap-4 md:flex-row md:justify-between justify-start md:items-end mt-4">
+                <PostsActionbarComponent :likes="publication.likes.length" :comments="publication.comments.length"
+                  :shares="publication.shares.length">
+                </PostsActionbarComponent>
+                <div class="lg:flex lg:justify-end">
+                  <div class="lg:flex lg:flex-col lg:gap-2">
+                    <button class="btn btn-primary flex gap-2">
+                      <span class="bi bi-check-circle-fill"></span>
+                      Apply
+                    </button>
+                  </div>
                 </div>
+              </div>
+              <div v-else class="flex flex-col gap-4 md:flex-row md:justify-between justify-start md:items-end mt-4">
+                <PostsActionbarComponent></PostsActionbarComponent>
               </div>
             </template>
           </CardComponent>
@@ -146,6 +164,7 @@
 import { api } from '@/services/api.js'
 import CardComponent from '@/components/utilities/CardComponent.vue'
 import DropdownComponent from '@/components/utilities/DropdownComponent.vue'
+import PostsActionbarComponent from '@/components/layout/PostsActionbarComponent.vue'
 export default {
   name: 'HomeView',
   data() {
@@ -158,7 +177,8 @@ export default {
   },
   components: {
     CardComponent,
-    DropdownComponent
+    DropdownComponent,
+    PostsActionbarComponent
   },
   methods: {
     getFriendsPublications() {
@@ -204,9 +224,11 @@ export default {
       }, 500)
     },
     filterFriend(id) {
-      return this.friends.filter((friend) => {
-        return friend.id === id
-      })[0]
+      const foundFriend = this.friends.find(friend => friend.id === id);
+      if (!foundFriend) {
+        return { image: 'path/to/default/image.png', name: 'Desconhecido' }; // ou qualquer outro valor padrão
+      }
+      return foundFriend;
     }
   },
   computed: {
